@@ -29,7 +29,7 @@ class Repositorio(Model):
     pontos = FloatField()
     acompanhadores = IntegerField()
     lincenca = TextField()
-    descricao = TextField()
+    descricao = TextField(null=True)
     linguagem = ForeignKey(Linguagem, on_delete=CASCADE)
     objects = Manager()
 

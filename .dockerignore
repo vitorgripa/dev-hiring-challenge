@@ -1,0 +1,8 @@
+.devcontainer
+.git
+
+
+*.pyc
+
+.gitignore
+.env.example

@@ -3,15 +3,18 @@ from django.db.models import IntegerField
 from django.db.models import TextField
 from django.db.models import URLField
 from django.db.models import ForeignKey
+from django.db.models import FloatField
 from django.db.models import CASCADE
 
 from django.db.models import Manager
 
 
 class Linguagem(Model):
-    
     nome = TextField()
     objects = Manager()
+
+    def __str__(self):
+        return str(self.nome)
 
     class Meta:
         db_table = "linguagens"
@@ -22,9 +25,16 @@ class Linguagem(Model):
 class Repositorio(Model):
     nome = TextField()
     url = URLField()
-    starts = IntegerField()
+    estrelas = IntegerField()
+    pontos = FloatField()
+    acompanhadores = IntegerField()
+    lincenca = TextField()
+    descricao = TextField()
     linguagem = ForeignKey(Linguagem, on_delete=CASCADE)
     objects = Manager()
+
+    def __str__(self):
+        return str(self.nome)
 
     class Meta:
         db_table = "repositorios"

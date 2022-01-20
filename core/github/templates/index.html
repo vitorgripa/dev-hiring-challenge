@@ -42,9 +42,7 @@
             {% if linguagens %}
                 <ul id="linguagens">
                     {% for linguagem in linguagens %}
-                        <li class="linguagem">
-                            <a href="#">{{linguagem.nome}}</a>
-                        </li>
+                        <li class="linguagem">{{linguagem.nome}}</li>
                     {% endfor %}
                 </ul>
             {% endif %}

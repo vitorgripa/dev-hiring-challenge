@@ -67,18 +67,29 @@ main {
     align-items: center;
     row-gap: 5vh;
     position: relative;
-    padding: 32px;
 }
 #linguagens {
     width: 100%;
     display: flex;
+    row-gap: 2vh;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 .linguagem {
-    background-color: var(--cor-secundaria);
+    color: var(--cor-terciaria);
+    background-color: white;
     text-align: center;
     font-size: 4em;
     padding: 32px;
+    text-transform: uppercase;
+    border: 1px solid var(--cor-secundaria);
+    transition-duration: 500ms;
+    cursor: default;
+}
+.linguagem:hover {
+    color: white;
+    background-color: var(--cor-terciaria);
+    transform: scale(1.1)
 }
 .linguagem a {
     text-decoration: none;
@@ -105,6 +116,7 @@ main {
     row-gap: 2vh;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 32px;
 
 }
 .repositorio {

@@ -7,5 +7,4 @@ from core.github import urls as github_urls
 
 urlpatterns = [
     path("", include(github_urls)),
-    path('admin/', admin.site.urls),
 ]

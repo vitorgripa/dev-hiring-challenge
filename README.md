@@ -12,7 +12,7 @@ Uma aplicação desenvolvida para consumo da api do github, listando os principa
 
 ### Container do banco de dados
     docker network create postgres
-    docker run --name postgres --network=postgres -e "POSTGRES_PASSWORD=teste" -p 5432:5432 -v data:/var/lib/postgresql/data postgres
+    docker run -d --name postgres --network=postgres -e "POSTGRES_PASSWORD=teste" -p 5432:5432 -v data:/var/lib/postgresql/data postgres
 
 ### Criando banco de dados
     docker exec -t postgres psql -U postgres -c "CREATE DATABASE dev_hiring_challenge"

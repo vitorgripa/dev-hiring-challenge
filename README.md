@@ -5,19 +5,26 @@ Uma aplicação desenvolvida para consumo da api do github, listando os principa
 ## Instruções
 
 ### Dependências
-- docker <br>ou
-- python 3.10+
-- postgresql 12+
+- docker
 
 ### Arquivos de configuração
     Crie um arquivo .env baseado em .env.example com a url de acesso ao banco de dados, chave secreta, a url da api do github e se será debugado o código.
 
 ### Container do banco de dados
     docker network create postgres
-    docker run --name postgres --network=postgres -e "POSTGRES_PASSWORD=teste" -p 5432:5432 -v ./:/var/lib/postgresql/data
+    docker run --name postgres --network=postgres -e "POSTGRES_PASSWORD=teste" -p 5432:5432 -v data:/var/lib/postgresql/data postgres
+
+### Criando banco de dados
+    docker exec -t postgres psql -U postgres -c "CREATE DATABASE dev_hiring_challenge"
 
 ### Buildando container da aplicação
-    docker build -t ateliware/dev-hiring-challenge
+    docker build -t ateliware/dev-hiring-challenge .
 
 ### Executando container
-    docker run -p 8000:8000 --network postgres ateliware/dev-hiring-challenge
+    docker run -p 8000:8000 --network postgres --name dev-hiring-challenge ateliware/dev-hiring-challenge
+
+### Aplicando migrations
+    docker exec -t dev-hiring-challenge python manage.py migrate
+
+### Testando aplicação
+    docker exec -t dev-hiring-challenge python manage.py test

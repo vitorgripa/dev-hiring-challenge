@@ -28,7 +28,7 @@ class Repositorio(Model):
     estrelas = IntegerField()
     pontos = FloatField()
     acompanhadores = IntegerField()
-    lincenca = TextField()
+    licenca = TextField()
     descricao = TextField(null=True)
     linguagem = ForeignKey(Linguagem, on_delete=CASCADE)
     objects = Manager()

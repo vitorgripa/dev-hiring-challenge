@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,8 +85,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = BASE_DIR.joinpath("static")
+STATIC_ROOT = BASE_DIR.joinpath("staticfiles")
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    BASE_DIR / "static",
+)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

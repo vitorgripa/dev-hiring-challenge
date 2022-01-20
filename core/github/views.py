@@ -9,6 +9,7 @@ from core.github.models import Repositorio as RepositorioModel
 
 from core.github.services import fetch_repositorios
 
+
 logging.basicConfig(level=logging.INFO)
 
 

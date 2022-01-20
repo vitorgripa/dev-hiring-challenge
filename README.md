@@ -28,3 +28,6 @@ Uma aplicação desenvolvida para consumo da api do github, listando os principa
 
 ### Testando aplicação
     docker exec -t dev-hiring-challenge python manage.py test
+
+### URL do ambiente de produção
+https://blooming-shelf-11188.herokuapp.com/
